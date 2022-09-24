@@ -5,9 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 2 Notes</title>
+    <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
     <h1>Week 2 Notes</h1>
-    <p>notes...</p>
+    <h2>JavaScript Chapter 2</h2>
+    <ul>
+        <li>JavaScript has a special operator called typeof for finding out the type of a value.</li>
+        <li>You can even declare and assign multiple variables at the same time if you separate them with commas:
+            let x = 3, y = 4, z = 5;</li>
+        <li>If a number starts with a 0x, it is considered to be in hexadecimal (base 16) notation.</li>
+        <li>ES6 now supports octal literals: If a number starts with a zero, followed by the letter o, 
+            then it is considered to be in octal (base 8) notation</li>
+        <li>ES6 also supports binary literals: If a number starts with a zero, followed by the letter b 
+            then it is considered to be in binary (base 2) notation</li>
+        <li>NaN is an error value that is short for "Not a Number". </li>
+        <li>&& is and operator, || is or operator</li>
+        <li>There is a soft inequality operator, != and a hard inequality operator, !==. 
+            (similar to == and ===)</li>
+    </ul>
+    <h2>JavaScript Chapter 3: Arrays, Logic, Loops</h2>
+    <ul>
+        <li>The join() method can be used to turn the array into a string that comprises all the 
+            items in the array, separated by commas.</li>
+        <li>The slice() method creates a subarray; effectively chopping out a slice of an original 
+            array, starting at one position and finishing at another. </li>
+        <li>The splice() method removes items from an array then inserts new items in their place.</li>
+        <li>A set is a data structure that represents a collection of unique values, so it cannot 
+            include any duplicate values. They are similar in concept to a mathematical set, although 
+            (for the time being at least) they don't contain mathematical set operations such as union, 
+            intersection and product.</li>
+        <li>Maps were another data structure introduced in the ES6 specification. They are a convenient 
+            way of keeping a list of key and value pairs, and are similar to 'hashes', or 'hash tables' 
+            or 'dictionaries' in other programming languages.</li>
+        <li>A shorthand way of writing an if ... else statement is to use the ternary operator, ?, which 
+            takes three operands in the following format:
+            condition ? (//code to run if condition is true) : (//code to run if condition is false)</li>
+    </ul>
+    <h2>JavaScript Chapter 4: Functions</h2>
+    <ul>
+        <li>Arrow function example: const square = x => x*x;</li>
+        <li>Hoisting is the JavaScript interpreter's action of moving all variable and function declarations 
+            to the top of the current scope, regardless of where they are defined.</li>
+        <li>The forEach() method. This will loop through the array and invoke a 
+            callback function using each value as an argument. The callback function takes three parameters, 
+            the first represents the value in the array, the second represents the current index and the third 
+            represent the array that the callback is being called on. </li>
+        <li>The map() method is very similar to the forEach() method. It also iterates over an array, and 
+            takes a callback function as a parameter that is invoked on each item in the array.</li>
+        <li>The filter() method returns a new array that only contains items from the original array that return 
+            true when passed to the callback. </li>
+    <h2>Questions</h2>
+    <ul>
+        <li>None</li>
+    </ul>
 </body>
 </html>
