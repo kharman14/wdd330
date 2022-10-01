@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 Notes</title>
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <h1>Week 3 Notes</h1>
+    <h2>Object Methods</h2>
+    <ul>
+        <li>A function that is a property of an object is called its method.</li>
+        <li>To access the object, a method can use the this keyword.
+            The value of this is the object “before dot”, the one used to call the method.</li>
+        <li>In JavaScript, keyword this behaves unlike most other programming languages. 
+            It can be used in any function, even if it's not a method of an object.</li>
+        <li>In non-strict mode the value of this in such case will be the global object </li>
+        <li>In JavaScript this is “free”, its value is evaluated at call-time and does 
+            not depend on where the method was declared, but rather on what object is “before the dot”.</li>
+        <li>Arrow functions are special: they don't have their “own” this.</li>
+    </ul>
+    <h2>JavaScript Chapter 5</h2>
+    <ul>
+        <li>An object literal is an object that is created directly in the language by wrapping all 
+            its properties and methods in curly braces {}.</li>
+        <li>Object literals are a distinguishing feature of the JavaScript language, 
+            as they allow objects to be created quickly without the need for defining a class.</li>
+        <li>Each property is a key-value pair, separated by commas.</li>
+        <li>for(const key in objectLiteral) {} where key is the property name and objectLiteral[key] 
+            is the value.</li>
+        <li>The Object.keys() method will return an array of all the keys of any object that is 
+            provided as an argument.</li>
+        <li>Any property can be removed from an object using the delete operator.</li>
+        <li>An object literal can be passed as a parameter to a function. </li>
+        <li>JSON is a string representation of the object literal notation.
+            Property names must be double-quoted,
+            Permitted values are double-quoted strings, numbers, true, false, null, arrays and objects,
+            Functions are not permitted values</li>
+        <li>The parse() method takes a string of data in JSON format and returns a JavaScript object:</li>
+        <li>The stringify() method does the opposite, taking a JavaScript object and returning a string of JSON data</li>
+        <li>Example of creating a regular expression: const pattern = /[a-zA-Z]+ing$/;</li>
+        <li>Once you've created a regular expression object, you can use the test() method to see if a string 
+            (passed to the method as a parameter) matches the regular expression pattern. It returns true if 
+            the pattern is in the string, and false if it isn't.</li>
+        <li>Groups of characters can be placed together inside square brackets. This character group represents 
+            any one of the characters inside the brackets.</li>
+        <li>A sequence of characters can also be represented by placing a dash [ - ] between the first and last characters</li>
+    </ul>
+    <h2>JavaScript Chapter 6</h2>
+    <ul>
+        <li>The Document Object Model, or DOM for short, represents an HTML document as a network of connected 
+            nodes that form a tree-like structure.</li>
+        <li>The parentNode(), previousSibling(), nextSibling(), childNodes() and children() methods 
+            can be used to navigate around the DOM tree.</li>
+        <li>Markup can be added to the page using the appendChild() and insertBefore() methods.</li>
+        <li>Elements can be replaced using the replaceChild() method, and removed using the removeChild() method.</li>
+    </ul>
+    <h2>JavaScript Chapter 7</h2>
+    <ul>
+        <li>JavaScript, on the other hand, uses a non-blocking approach that uses event listeners to listen out 
+            for any clicks on the page. Every time the page is clicked, a callback function will be called. So the 
+            program can continue processing the rest of the code while it's waiting for the click event to happen.</li>
+        <li>The event object is passed to the callback function as an argument, and contains lots of 
+            properties and methods relating to the event.</li>
+        <li>Event propagation is the order the events fire on each element.</li>
+        <li>Event delegation is when an event listener is added to a parent element to capture events that happen to its children elements.</li>
+    </ul>
+    <h2>Questions</h2>
+    <ul>
+        <li>What is sibling node and when would you use that syntax?</li>
+    </ul>
+</body>
+</html>
