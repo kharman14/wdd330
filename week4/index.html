@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 4 Notes</title>
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <h1>Week 4 Notes</h1>
+    <h2>Chapter 8 Forms</h2>
+    <ul>
+        <li>const form = document.forms['search'];</li>
+        <li>A form object also has a method called elements that returns 
+            an HTML collection of all the elements contained in the form. 
+            In this case the form contains two controls: an input element 
+            and a button element.</li>
+        <li>const input = form.searchInput (both methods work, just be 
+            careful if there are any naming clashes)</li>
+        <li>A form can be submitted manually by the user employing a button 
+            or input element with a type attribute of submit, or even an 
+            input element with a type attribute of image.</li>
+        <li>The form.reset() method will reset all the form controls back 
+            to their initial values specified in the HTML. Reset buttons are 
+            generally considered poor for usability, as they are too easy to 
+            click and then wipe out all the data that's been entered. </li>
+        <li>The form.action property can be used to set the action attribute 
+            of a form, so it's sent to a different URL to be processed on 
+            the server.</li>
+        <li>We can actually stop the form from being submitted to that URL 
+            altogether by using the preventDefault() method</li>
+        <li>Validation can occur on the client side using JavaScript, and on 
+            the server side. It is advisable to use both client-side and 
+            server-side validation.</li>
+        <li>We can improve the usability of the form further by giving instant 
+            feedback, instead of waiting for the form to be submitted. This 
+            can be achieved by adding the event listener directly to the input 
+            field that will fire when the user presses a key 
+            (using the keyup event).</li>
+        <li>In a real application, you might end up having to validate many 
+            different elements according to various different rules. If this 
+            is the case, it would make sense to write some more generic 
+            addError() and removeError() functions to deal with the different 
+            types of validation you might want to apply to the various elements 
+            in a form.</li>
+    </ul>
+    <h2>Chapter 12 Object-Oriented Programming in JavaScript</h2>
+    <ul>
+        <li>The main concepts of OOP are encapsulation, polymorphism 
+            and inheritance.</li>
+        <li>Inside a constructor function or class declaration, the keyword 
+            this refers to the object returned by the function.</li>
+        <li>Private properties and methods can be created by defining variables 
+            using const and defining a function inside a constructor function. 
+            These can be made public using getter and setter functions.</li>
+        <li>Polymorphism allows objects to override shared methods with a more 
+            specific implementation.</li>
+        <li>The value of this is not retained inside nested functions, which 
+            can cause errors. This can be worked around by using that = this, 
+            using the bind(this) method and using arrow functions.</li>
+        <li>Methods can be borrowed from other objects.</li>
+    </ul>
+    <h2>Chapter 15 Modern JavaScript Development</h2>
+    <ul>
+        <li>A JavaScript library is a piece of code that provides several methods
+             that make it easier to achieve common tasks.</li>
+        <li>A library will abstract functionality into easier-to-use functions and methods.</li>
+        <li>This shows how using a library can reduce the amount of code you 
+            have to write, as well as making common tasks easier to implement.</li>
+        <li>jQuery and Lodash are two popular libraries that provide a large number of 
+            useful and well-tested functions.</li>
+        <li>A module is a self-contained piece of code that provides functions and 
+            methods that can then be used in other files and by other modules.</li>
+        <li>The MVC pattern is used to organize code into distinct sections that 
+            are responsible for different elements of an application.</li>
+        <li>Template files can be used to separate view code from JavaScript; they 
+            also enable dynamic code and programming logic to be used to generate markup.</li>
+        <li>React and Vue.js are popular JavaScript view libraries that render components 
+            and keep track of their state.</li>
+        <li>Minification is the process of removing any redundant characters from the 
+            code in order to reduce its file size.</li>
+        <li>Before code is deployed, it should be concatenated into a single file, 
+            minified and compressed. The script tag should be placed just before 
+            the closing /body tag to ensure that all elements on the page have 
+            loaded before the script runs.</li>
+    </ul>
+    <h2>Questions</h2>
+    <ul>
+        <li>Is there a best practice between using input submit versus a submit button in a form?</li>
+    </ul>
+</body>
+</html>
