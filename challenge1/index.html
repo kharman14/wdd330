@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style/todo.css" />
+</head>
+<body>
+    <main>
+        <h1>Todos</h1>
+        <div>
+            <form id="list">
+                <fieldset>
+                    <input type="checkbox" name="task1">
+                    <label for="task1">Task</label>
+                    <button>X</button>
+                </fieldset>
+                <fieldset>
+                    <input type="checkbox" name="task2">
+                    <label for="task2">Task</label>
+                    <button>X</button>
+                </fieldset>
+                <footer>
+                    <p></p>
+                    <button>All</button>
+                    <button>Active</button>
+                    <button>Completed</button>
+                </footer>
+            </form>
+        </div>
+            <form>
+                <input type="text" name="item" id="item" placeholder="Add New" />
+                <input type="submit">
+            </form>
+    </main>
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>

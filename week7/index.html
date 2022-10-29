@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 7 Notes</title>
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <h1>Week 7 Notes</h1>
+    <h2>Chapter 11: Further Functions</h2>
+    <ul>
+        <li>The call() method can be used to set the value of this inside a 
+            function to an object that is provided as the first argument.
+            Ex: function.call(argument)</li>
+        <li>If a function takes some time to compute a return value, we can save 
+            the result in a cache property. Then if the same argument is used 
+            again later, we can return the value from the cache, rather than 
+            having to compute the result again.</li>
+        <li>Immediately Invoked Function Expressions or IIFEs are functions that 
+            are enclosed in parentheses and immediately followed by double 
+            parentheses so they're invoked. They are useful for namespacing 
+            variables and setting default values.</li>
+        <li>Placing any code that uses the temporary variable inside an IIFE will 
+            ensure it's only available while the IIFE is invoked, then it will 
+            disappear. </li>
+        <li>Functions are able to dynamically redefine themselves in the body of 
+            the function, depending on certain conditions.</li>
+        <li>A recursive function is one that invokes itself until a certain 
+            condition is met. It's a useful tool to use when iterative processes 
+            are involved. A common example is a function that calculates the 
+            factorial of a number</li>
+        <li>Callbacks are frequently used in asynchronous programming as part of 
+            the event loop. This means that a program can continue to run in a 
+            single thread while waiting for another task to be completed.</li>
+        <li>Promises can be used instead of callbacks to deal with multiple 
+            asynchronous actions in sequence. They also provide a nicer mechanism 
+            for handling errors.</li>
+        <li>Functions that return other functions are known as higher-order functions.</li>
+        <li>A closure is a reference to a variable that was created inside the scope of 
+            another function, but is then kept alive and used in another part of the program.</li>
+        <li>A closure is formed when the inner function is returned by the outer function, 
+            maintaining access to any variables declared inside the enclosing function.</li>
+        <li>Calling a generator function doesn't actually run any of the code in the 
+            function; it returns a Generator object that can be used to create an 
+            iterator that implements a next() method that returns a value every time 
+            the next() method is called.</li>
+        <li>Generator functions employ the special yield keyword that is used to return a 
+            value. The difference between the yield and the return keywords is that by 
+            using yield, the state of the value returned is remembered the next time 
+            yield is called.</li>
+        <li>Functional programming involves breaking processes down into steps that can be 
+            applied as a series of functions.</li>
+        <li>Pure functions are functions that don't rely on the state of the code they 
+            are called from, have no side-effects, and always give the same result when 
+            given the same arguments (referential transparency).</li>
+    </ul>
+    <h2>Chapter 13: Ajax</h2>
+    <ul>
+        <li>Ajax is a technique that allows web pages to communicate asynchronously with 
+            a server, and it dynamically updates web pages without reloading.</li>
+        <li>The data can be sent in many forms, but it is usually in JSON.</li>
+        <li>Ajax can be used for communicating with external APIs.</li>
+        <li>Ajax requests can be made using the Fetch API.</li>
+        <li>The Response interface allows you to control the response received from 
+            a request or to create your own response objects.</li>
+        <li>The Request interface allows you to create a request object that contains 
+            information about the request being made, such as the URL and headers.</li>
+        <li>The Headers interface allows you to create HTTP headers that can be added to 
+            a request or response object.</li>
+        <li>Requests can retrieve data using a GET request, or send data using a POST request.</li>
+        <li>The FormData interface makes it easier to send data from forms.</li>
+    </ul>
+    <h2>Questions</h2>
+    <ul>
+        <li>I had never heard of Functional Programming before, is it not as much of an 
+            industry standard as Object-Oriented Programming?</li>
+    </ul>
+</body>
+</html>
