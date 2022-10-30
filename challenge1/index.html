@@ -11,28 +11,19 @@
     <main>
         <h1>Todos</h1>
         <div>
-            <form id="list">
-                <fieldset>
-                    <input type="checkbox" name="task1">
-                    <label for="task1">Task</label>
-                    <button>X</button>
-                </fieldset>
-                <fieldset>
-                    <input type="checkbox" name="task2">
-                    <label for="task2">Task</label>
-                    <button>X</button>
-                </fieldset>
-                <footer>
-                    <p></p>
-                    <button>All</button>
-                    <button>Active</button>
-                    <button>Completed</button>
-                </footer>
-            </form>
+            <ul id="list">
+                
+            </ul>
+            <footer>
+                <label for="total"></label>
+                <button>All</button>
+                <button>Active</button>
+                <button>Completed</button>
+            </footer>
         </div>
             <form>
                 <input type="text" name="item" id="item" placeholder="Add New" />
-                <input type="submit">
+                <input type="submit" onclick="addTodo()" value="Add">
             </form>
     </main>
     <script src="js/main.js" type="module"></script>
