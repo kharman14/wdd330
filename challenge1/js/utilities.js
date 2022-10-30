@@ -1,9 +1,10 @@
 
-function qs(selector) { 
+export function qs(selector) { 
     let element = document.querySelector(selector);
     return element;
 }
 
-function onTouch(elementSelector, callback) { 
-    elementSelector.addEventListener('touchend click', callback);
+export function onTouch(elementSelector, callback) { 
+    let element = document.querySelector(elementSelector);
+    element.addEventListener('touchend', callback);
 }

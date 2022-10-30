@@ -3,8 +3,9 @@ import {qs, onTouch} from "./utilities.js";
 
 export default class Todos {
     constructor(elementId) {
-        this.parentElement = document.qs(elementId);
+        this.parentElement = qs(elementId);
         this.key = 'todoList';
+        this.todoList = null;
     }
 
     addTodo() {
@@ -48,7 +49,7 @@ export default class Todos {
 function saveTodo(task, key) {
     let date = new Date();
     let todo = {'id': date, 'content': task, 'completed': false};
-    todoList.push(todo);
+    Todos.todoList.push(todo);
     writeToLS(key, todoList);
 }
 
@@ -58,28 +59,31 @@ it is null then pull the list of todos from localstorage, update the local varia
 @return {array} The value as an array of objects
 */
 function getTodos(key) { 
-    if (todoList == null){
-        todoList = readFromLS(key);
-        return todoList;
+    if (Todos.todoList == null){
+        Todos.todoList = readFromLS(key);
+        return Todos.todoList;
     }     
 }
 
 function renderTodoList(list, element) {
-    list.foreach((todo) => {
-            let li = document.createElement('li');
-            let checkbox = document.createElement('input');
-            let label = document.createElement('label');
-            let button = document.createElement('button');
+    if (list != null) {
+        list.foreach((todo) => {
+                let li = document.createElement('li');
+                let checkbox = document.createElement('input');
+                let label = document.createElement('label');
+                let button = document.createElement('button');
 
-            checkbox.setAttribute('type', 'checkbox');
-            label.innerHTML = todo;
-            button.innerHTML = 'X';
-            button.setAttribute('onclick', onTouch('button', removeTodo()));
+                checkbox.setAttribute('type', 'checkbox');
+                label.innerHTML = todo;
+                button.innerHTML = 'X';
+                button.setAttribute('id', 'remBtn');
+                button.setAttribute('onclick', onTouch(e.target, removeTodo()));
 
-            li.appendChild(checkbox);
-            li.appendChild(label);
-            li.appendChild(button);
-            element.appendChild(li);
-        }
-    )
+                li.appendChild(checkbox);
+                li.appendChild(label);
+                li.appendChild(button);
+                element.appendChild(li);
+            }
+        )
+    }
 }

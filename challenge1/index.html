@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
     <link rel="stylesheet" href="style/todo.css" />
+    <script defer src="js/main.js" type="module"></script>
 </head>
 <body>
     <main>
         <h1>Todos</h1>
         <div>
             <ul id="list">
-                
             </ul>
             <footer>
                 <label for="total"></label>
@@ -23,9 +23,8 @@
         </div>
             <form>
                 <input type="text" name="item" id="item" placeholder="Add New" />
-                <input type="submit" onclick="addTodo()" value="Add">
+                <button id="addBtn" onclick="onTouch('#addBtn', addTodo())">Add</button>
             </form>
     </main>
-    <script src="js/main.js" type="module"></script>
 </body>
 </html>
