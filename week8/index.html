@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 8 Notes</title>
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <h1>Week 8 Notes</h1>
+    <h2>Chapter 8: Transforms and Transitions</h2>
+    <ul>
+        <li>The CSS3 transform property lets you lets you translate, rotate, 
+            scale, and/or skew any element on the page.</li>
+        <li>We can manipulate an element's appearance using transform 
+            functions. The value of the transform property is one or more 
+            transform functions (separated by spaces) that will be applied 
+            in the order they're provided. </li>
+        <li>Translation functions allow you to move elements left, right, 
+            up, or down. When you employ a translation function, you're 
+            moving elements without impacting the flow of the document. 
+            Transforms don't work on inline elements. </li>
+        <li>Ex: The translate(x,y) function moves an element x from the left, 
+            and y from the top</li>
+        <li>If you only want to move an element vertically or horizontally, 
+            you can use the translatex or translatey functions respectively. </li>
+        <li>The scale(x,y) function scales an element by the defined factors 
+            horizontally then vertically. If only one value is provided, it 
+            will be used for both the x and y values, growing or shrinking 
+            your element or pseudo-element while maintaining the original 
+            aspect ratio. </li>
+        <li>A scaled element will grow outwards from or shrink inwards towards 
+            its center; in other words, the element's center will stay in the 
+            same place as its dimensions change. </li>
+        <li>The rotate() function rotates an element around the point of origin 
+            by a specified angle value. By default the point of origin is the 
+            element's center. Generally, angles are declared in degrees, with 
+            positive degrees moving clockwise and negative moving counterclockwise.</li>
+        <li>The skew(x,y) function specifies a skew along the x and y axes.</li>
+        <li>Ex: transition: property, duration, timing-function, delay. transition: 
+            transform 0.2s ease-out 50ms;</li>
+        <li>A keyframe is a snapshot that defines a starting or end point of any 
+            smooth transition. With CSS transitions, we're essentially limited to 
+            defining a first and a last keyframe. CSS animations allow us to add 
+            any number of keyframes in between, to guide our animation in more 
+            complex ways.</li>
+        <li>Ex: @keyframes myAnimation { /* put animation keyframes here */ }</li>
+        <li>There are two keyterms― from and to ―which evaluate to 0% and 100% 
+            respectively. These values specify how far along the animation each 
+            keyframe is located.</li>
+        <li>This property is used to attach an animation (previously defined using 
+            the @keyframes syntax) to an element: animation-name: myAnimation;</li>
+    </ul>
+    <h2>Chapter 12: Canvas, SVG, and Drag and Drop</h2>
+    <ul>
+        <li>With HTML5's Canvas API, we can draw anything we can imagine, all through JavaScript.</li>
+        <li>EX: {canvas} id="myCanvas" class="myCanvas" width="200" height="200">
+            Sorry! Your browser doesn't support Canvas.{canvas}</li>
+        <li>Once we've stored our canvas element in a variable(in a JavaScript file canvas.js), 
+            we then set up the canvas's context. The context is the place where your drawing is rendered.</li>
+        <li>In the canvas coordinate system, the top-left corner is (0,0). If the 
+            canvas is 200 pixels by 200 pixels, then the bottom-right corner is (200,200)</li>
+        <li> It's an anonymous function. Anonymous functions are much like regular functions 
+            except, as you might guess, they are without names.</li>
+        <li>SVG stands for Scalable Vector Graphics, a specific file format that allows you 
+            to describe vector graphics using XML.</li>
+        <li>A major selling point of vector graphics in general is that, unlike bitmap 
+            images (such as GIF, JPEG, PNG, and TIFF), vector images preserve their quality 
+            even as you blow them up or shrink them down.</li>
+        <li>XML stands for eXtensible Markup Language. Like HTML, it's a markup metalanguage.</li>
+        <li>Raphaël is an open-source JavaScript library that makes drawing and 
+            animating with SVG much easier.</li>
+        <li>Set the draggable attribute on any HTML elements you'd like to be draggable.
+            Add an event listener for the dragstart event on any draggable HTML elements. 
+            Add an event listener for the dragover and drop events on any elements that you 
+            want to have accept dropped items.</li>
+    </ul>
+    <h2>Questions</h2>
+    <ul>
+        <li>I understand the practicality of SVG and drag and drop, but when is an example of Canvas in use?</li>
+    </ul>
+</body>
+</html>
