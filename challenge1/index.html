@@ -5,26 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/todo.css" />
-    <script defer src="js/main.js" type="module"></script>
 </head>
 <body>
     <main>
-        <h1>Todos</h1>
+        <h1>To Do List</h1>
+        <div id="message"></div>
         <div>
-            <ul id="list">
+            <ul id="todolist">
             </ul>
-            <footer>
-                <label for="total"></label>
-                <button>All</button>
-                <button>Active</button>
-                <button>Completed</button>
-            </footer>
+            <div id="footer">
+                <label id="total" for="total"></label>
+                <div id="mode">
+                    <button>All</button>
+                    <button>Active</button>
+                    <button>Completed</button>
+                </div>
+            </div>
         </div>
-            <form>
-                <input type="text" name="item" id="item" placeholder="Add New" />
-                <button id="addBtn" onclick="onTouch('#addBtn', addTodo())">Add</button>
-            </form>
+        <div id="addNew">
+            <input type="text" id="todoValue" placeholder="Add New" />
+            <button id="addBtn">Add</button>
+         </div>
     </main>
+    <script src="js/main.js" type="module"></script>
 </body>
 </html>

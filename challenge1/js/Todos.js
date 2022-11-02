@@ -1,89 +1,134 @@
-import {readFromLS, writeToLS} from "./ls.js";
-import {qs, onTouch} from "./utilities.js";
+import Todo from './todo.js';
 
 export default class Todos {
-    constructor(elementId) {
-        this.parentElement = qs(elementId);
-        this.key = 'todoList';
-        this.todoList = null;
+    constructor(todos) {
+        this.todos = todos;
     }
 
-    addTodo() {
-        //Add a method to the Todos class called addTodo. It should grab the input in the 
-        //html where users enter the text of the task, then send that along with the key to a 
-        //SaveTodo() function. Then update the display with the current list of tasks
-        let newTask = qs('#item').value;
-        saveTodo(newTask, this.key);
-        this.listTodos();
+    listTodos(all, active, completed) {
+        const todosList = document.getElementById("todolist");
+        todosList.innerHTML = "";
+        this.renderTodoList(this.todos, todosList, all, active, completed);
+        this.countLeftTasks();
     }
 
-    listTodos() {
-        // It should use the renderTodoList function to output our todo list when called.
-        //It should get called when a todo is added, or removed, and when the Todos class is instantiated.
-        renderTodoList(getTodos(this.key), this.parentElement);
+    renderTodoList(todoList, parent, all, active, completed) {
+        if(all == true){
+            todoList.forEach(todo => {
+                parent.appendChild(this.renderTodoItem(todo));
+                this.countLeftTasks();
+            });
+        } else if(active == true){
+            todoList.forEach(todo => {
+                if(todo.completed == false){
+                    parent.appendChild(this.renderTodoItem(todo));
+                    this.countLeftTasks();
+                }
+            });
+        } else {
+            todoList.forEach(todo => {
+                if(todo.completed == true){
+                    parent.appendChild(this.renderTodoItem(todo));
+                    this.countLeftTasks();
+                }
+            });
+        }
     }
 
-    completeTodo() {
-        // set completed: true on a single todo in the todoList array
+    renderTodoItem(todo){
+        const li = document.createElement('li');
+        if(todo.completed == true){
+            const input = document.createElement('input');
+            input.setAttribute('type', 'checkbox');
+            input.setAttribute('checked', true);
+            const label = document.createElement('label');
+            label.innerHTML = todo.todoName;
+            const remBtn = document.createElement('button');
+            remBtn.innerHTML = 'X';
+            const itemId = document.createElement('input');
+            itemId.setAttribute('type', 'hidden');
+            itemId.setAttribute('value', `${todo.id}`);
+
+            li.appendChild(input);
+            li.appendChild(label);
+            li.appendChild(remBtn);
+            li.appendChild(itemId);
+        } else {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'checkbox');
+            const label = document.createElement('label');
+            label.innerHTML = todo.todoName;
+            const remBtn = document.createElement('button');
+            remBtn.innerHTML = 'X';
+            const itemId = document.createElement('input');
+            itemId.setAttribute('type', 'hidden');
+            itemId.setAttribute('value', `${todo.id}`);
+
+            li.appendChild(input);
+            li.appendChild(label);
+            li.appendChild(remBtn);
+            li.appendChild(itemId);
+        }
+        return li;
     }
 
-    removeTodo() {
-        // Remove a task from the list and local storage
-        let removeTask = document.qs($(this)).value;
-        todoList.filter((item) => {
-            if (item != removeTask) {
-                return item;
+    countLeftTasks(){
+        let uncompletedTasks = 0;
+        for(let i=0;i<this.todos.length;i++){
+            if(this.todos[i].completed == false){
+                uncompletedTasks++;
             }
-        })
-        writeToLS(this.key, todoList);
-        this.listTodos();
+        }
+        document.getElementById("total").textContent = `${uncompletedTasks} tasks left`;
     }
 
-    filterTodo() {
-        // Filter by 
+    addItem(all, active, completed){
+        let todoName = document.getElementById("todoValue").value
+        if(todoName == ""){
+            document.getElementById("message").innerHTML = "Sorry, input cannot be blank. Please, " +
+            "specify an item";
+        } else {
+            document.getElementById("message").innerHTML = "";
+            let id = Date.now()            
+            let completed = false
+            let newTodo = new Todo(id, todoName, completed);
+            this.addTodo(newTodo);
+            this.listTodos(all, active, completed);
+            this.countLeftTasks();
+        }
     }
-}
 
-//In the Todo.js module, but not in the Todos class, create the following function
-// build a todo object, add it to the todoList, and save the new list to local storage.
-function saveTodo(task, key) {
-    let date = new Date();
-    let todo = {'id': date, 'content': task, 'completed': false};
-    Todos.todoList.push(todo);
-    writeToLS(key, todoList);
-}
+    addTodo(newTodo, all, active, completed) {
+        localStorage.setItem("todos", newTodo)
+        this.todos.push(newTodo)
+        let todosArrayString = JSON.stringify(this.todos)
+        localStorage.setItem("todos", todosArrayString)
+        this.countLeftTasks();
+    }
 
-/* check the contents of todoList, a local variable containing a list of ToDos. If 
-it is null then pull the list of todos from localstorage, update the local variable, and return it
-@param {string} key The key under which the value is stored under in LS 
-@return {array} The value as an array of objects
-*/
-function getTodos(key) { 
-    if (Todos.todoList == null){
-        Todos.todoList = readFromLS(key);
-        return Todos.todoList;
-    }     
-}
-
-function renderTodoList(list, element) {
-    if (list != null) {
-        list.foreach((todo) => {
-                let li = document.createElement('li');
-                let checkbox = document.createElement('input');
-                let label = document.createElement('label');
-                let button = document.createElement('button');
-
-                checkbox.setAttribute('type', 'checkbox');
-                label.innerHTML = todo;
-                button.innerHTML = 'X';
-                button.setAttribute('id', 'remBtn');
-                button.setAttribute('onclick', onTouch(e.target, removeTodo()));
-
-                li.appendChild(checkbox);
-                li.appendChild(label);
-                li.appendChild(button);
-                element.appendChild(li);
+    completeItem(event, all, active, completed) {
+        let itemId = event.target.nextElementSibling.nextElementSibling.nextElementSibling.value;
+        for(let i=0;i<this.todos.length;i++){
+            if(this.todos[i].id == itemId){
+                this.todos[i].completed = (this.todos[i].completed == false) ? true : false;
             }
-        )
+        }
+        let todosArrayString = JSON.stringify(this.todos)
+        localStorage.setItem("todos", todosArrayString)
+        this.listTodos(all, active, completed);
+        this.countLeftTasks();
+    }
+
+    removeItem(event, all, active, completed) {
+        let deleteItemId = event.target.nextElementSibling.value;
+        for(let i=0;i<this.todos.length;i++){
+            if(this.todos[i].id == deleteItemId){
+                this.todos.splice(i, 1);
+                let todosArrayString = JSON.stringify(this.todos);
+                localStorage.setItem("todos", todosArrayString)
+                this.listTodos(all, active, completed);
+                this.countLeftTasks();
+            }
+        }
     }
 }
