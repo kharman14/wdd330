@@ -11,11 +11,38 @@
     <h1>Week 10 Notes</h1>
     <h2>MDN: Validating Forms</h2>
     <ul>
-        <li></li>
+        <li>Before submitting data to the server, it is important to ensure all 
+            required form controls are filled out, in the correct format. This 
+            is called client-side form validation, and helps ensure data submitted 
+            matches the requirements set forth in the various form controls</li>
+        <li>Built-in form validation uses HTML form validation features, which we've 
+            discussed in many places throughout this module. This validation generally 
+            doesn't require much JavaScript. Built-in form validation has better 
+            performance than JavaScript, but it is not as customizable as JavaScript validation.</li>
+        <li>JavaScript validation is coded using JavaScript. This validation is completely 
+            customizable, but you need to create it all (or use a library).</li>
+        <li>Another useful validation feature is the pattern attribute, which expects 
+            a Regular Expression as its value.</li>
+        <li>Always remember to help your users correct the data they provide. To that end, be sure to:
+            Display explicit error messages, Be permissive about the input format,
+            Point out exactly where the error occurs, especially on large forms.</li>
     </ul>
     <h2>MDN: Using Fetch</h2>
     <ul>
-        <li></li>
+        <li>The Promise returned from fetch() won't reject on HTTP error status even if the 
+            response is an HTTP 404 or 500. Instead, as soon as the server responds with 
+            headers, the Promise will resolve normally (with the ok property of the 
+            response set to false if the response isn't in the range 200-299), and 
+            it will only reject on network failure or if anything prevented the 
+            request from completing.</li>
+        <li>Basic fetch request: fetch('http://example.com/movies.json') .then((response) => response.json())
+            .then((data) => console.log(data));</li>
+        <li>The Response object, in turn, does not directly contain the actual JSON 
+            response body but is instead a representation of the entire HTTP response. 
+            So, to extract the JSON body content from the Response object, we use the 
+            json() method, which returns a second promise that resolves with the 
+            result of parsing the response body text as JSON.</li>
+        <li>As you have seen above, Response instances are returned when fetch() promises are resolved.</li>
     <h2>Questions</h2>
     <ul>
         <li>None</li>
