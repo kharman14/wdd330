@@ -31,9 +31,13 @@ const displayResults = (data) => {
     data.response.hits.forEach(hit => {
         let article = document.createElement('article');
         let h3 = document.createElement('h3');
-
+        //let a = document.createElement('a');
+        // add a to h3
         let fullTitle = hit.result.title;
         h3.textContent = fullTitle;
+        // a.textContent = fullTitle;
+        // a.setAttribute =
+        // h3.appendChild(a);
         article.appendChild(h3);
         main.append(article);
     });
