@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Sono', sans-serif;
 }
 
 div {
@@ -101,6 +101,7 @@ article h3 {
 h1 {
     color: white;
     padding: 20px;
+    font-family: 'Bungee', cursive;
 }
 
 #header-section {
