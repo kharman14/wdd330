@@ -111,3 +111,18 @@ h1 {
 form label {
     color: white;
 }
+
+[class^="song-details"] {
+    display: none;
+    width: 700px;
+    margin: auto;
+    border: 1px solid #5EB1BF;
+}
+
+[class^="song-details"] img {
+    grid-column: 1;
+}
+
+[class^="song-details"] div {
+    grid-column: 2;
+}
