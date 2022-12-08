@@ -10,7 +10,7 @@ div {
 footer {
     background-color: #463F3A;
     color: white;
-    padding: 5px;
+    padding: 15px;
     text-align: center;
 }
 
@@ -61,7 +61,6 @@ nav ul li a:hover {
     color: black;
 }
 
-/* Class Selectors */
 .active {
     background-color: white;
     color: black;
@@ -73,12 +72,11 @@ nav ul li a:hover {
 
 aside {
     text-align: center;
-    background-color: #463F3A;
+    background-color: #5EB1BF;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    color: white;
-    padding: 0.5rem;
-    width: 20vw;
+    color: black;
     margin: auto;
+    font-family: 'Bungee', cursive;
 }
 
 form {
@@ -99,13 +97,13 @@ article h3 {
 }
 
 h1 {
-    color: white;
     padding: 20px;
     font-family: 'Bungee', cursive;
 }
 
 #header-section {
-    background-color: #FF1654;
+    background-color: #463F3A;
+    color: white;
 }
 
 form label {
@@ -114,9 +112,10 @@ form label {
 
 [class^="song-details"] {
     display: none;
-    width: 700px;
+    width: 650px;
     margin: auto;
     border: 1px solid #5EB1BF;
+    background-color: #5eb0bfad;
 }
 
 [class^="song-details"] img {
@@ -125,4 +124,13 @@ form label {
 
 [class^="song-details"] div {
     grid-column: 2;
+}
+
+[class^="song-details"] a {
+    text-decoration: none;
+    color: black;
+}
+
+[class^="song-details"] a:hover {
+    color: blue;
 }
