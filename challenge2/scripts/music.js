@@ -32,28 +32,27 @@ const displayResults = (data) => {
     data.response.hits.forEach(hit => {
         let article = document.createElement('article');
         let h3 = document.createElement('h3');
-
         let div = document.createElement('div');
-        div.classList.add(`song-details${i}`);
-        let img = document.createElement('img');
-        img.setAttribute('src', hit.result.song_art_image_thumbnail_url);
-        img.setAttribute('alt', 'Song Art');
         let div2 = document.createElement('div');
         let h4 = document.createElement('h4');
         let p = document.createElement('p');
+        let a = document.createElement('a');
+        let img = document.createElement('img');
+
+        div.classList.add(`song-details${i}`);
+        img.setAttribute('src', hit.result.song_art_image_thumbnail_url);
+        img.setAttribute('alt', 'Song Art');
         let songReleaseDate = hit.result.release_date_for_display;
         p.textContent = `Release Date: ${songReleaseDate}`;
-        let a = document.createElement('a');
-        let lyricURL = hit.result.stats.url;
+        let lyricURL = hit.result.url;
         a.textContent = `Genius Lyrics - ${hit.result.title} `;
         a.setAttribute('href', lyricURL);
-
         let fullTitle = hit.result.title;
         h3.textContent = fullTitle;
         h3.classList.add(`song${i}`);
         h3.setAttribute('onclick', 'showSongDetails(this)');
-
         h4.textContent = fullTitle;
+
         article.appendChild(h3);
         div.appendChild(img);
         div2.appendChild(h4);
@@ -69,10 +68,11 @@ const displayResults = (data) => {
 
 function showSongDetails(element) {
     let current_class = element.getAttribute('class');
-    let index = current_class.charAt(current_class.length - 1);
+    // get number index at the end of the class name
+    let index = current_class.match(/[0-9]+$/);
     if (document.querySelector(`.song-details${index}`).style.display == 'grid') {
         document.querySelector(`.song-details${index}`).style.display = 'none';
     } else {
-    document.querySelector(`.song-details${index}`).style.display = 'grid';
+        document.querySelector(`.song-details${index}`).style.display = 'grid';
     }
 };
